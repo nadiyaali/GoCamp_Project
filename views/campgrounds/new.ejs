@@ -1,0 +1,67 @@
+<% layout("layouts/boilerplate.ejs") %>
+   
+    <div class="row">
+        <h1 class="text-center">New  Campground </h1>
+        <!-- One way to make content in center -->
+        <!-- 12 unit, middle 6 but offset 3 -->
+        <div class="col-6 offset-3" >
+            <!-- for using default html5 validation, use required on form input elements -->
+            <!-- For using custom validation
+            1. Add required to form elements
+            2. Add novalidate to form
+            3. Add class="needs-validation" to form
+            4. Add javascript that applies to all forms with class="needs-validation"
+            5. Add custom feedback message using
+            <div class="valid-feedback">
+            Looks good!
+            </div>
+            -->
+            <form action="/campgrounds" method="POST" novalidate class="needs-validation">
+               <div class="mb-3">
+                <label class="form-label" for="title">Title : </label>
+               <input class="form-control" type="text" name="campground[title]" id="title" required placeholder="Campground Title">
+               <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="location">Location : </label>
+                <input class="form-control" type="text" name="campground[location]" id="location" required placeholder="Campground Location">
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>  
+            <div class="mb-3">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="price-label">$</span>
+                    <input type="number" class="form-control" name="campground[price]" required aria-label="Price" aria-describedby="price-label">
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>  
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image">Image URL: </label>
+                <input class="form-control" type="text" name="campground[image]" id="image" required placeholder="Campground Image">
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>  
+            <div class="mb-3">
+                <label class="form-label" for="description">Description : </label>
+                <!-- textarea needs a closing tag -->
+                <textarea class="form-control" type="text" name="campground[description]" required id="description" placeholder="Campground Description"></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>  
+            <div class="mb-3">  
+                <button class="btn btn-success" type="submit">Add new Campground</button>
+            </div>
+            </form>
+            <a href="/campgrounds">All Campgrounds</a>
+        
+        </div>
+    </div>
+
+    

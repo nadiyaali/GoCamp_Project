@@ -1,0 +1,59 @@
+<% layout("layouts/boilerplate.ejs") %>
+
+
+    <div class="row">
+        <h1 class="text-center">Update Campground </h1>
+        <!-- One way to make content in center -->
+        <!-- 12 unit, middle 6 but offset 3 -->
+        <div class="col-6 offset-3" >
+            <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST" novalidate class="needs-validation" >
+                <div class="mb-3">
+                <label class="form-label" for="title">Title : </label>
+                <input class="form-control" type="text" required value="<%= campground.title %>" name="campground[title]" id="title" >
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>   
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="location">Location : </label>
+                <input class="form-control" type="text" required value="<%= campground.location %>" name="campground[location]" id="location">
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>  
+            <div class="mb-3">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="price-label">$</span>
+                    <input class="form-control" required value="<%= campground.price %>" name="campground[price]" placeholder="0.00" aria-label="Price" aria-describedby="price-label">
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image">Image URL: </label>
+                <input class="form-control" type="text" required value="<%= campground.image %>" name="campground[image]" id="image">
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>  
+            <div class="mb-3">
+                <label class="form-label" for="description">Description : </label>
+                <!-- textarea needs a closing tag -->
+                <textarea class="form-control" type="text" required name="campground[description]" id="description" placeholder="Campground Description"><%= campground.description %></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>  
+            <div class="mb-3">  
+                <button class="btn btn-success" type="submit">Update Campground</button>
+            </div>
+            </form>
+            <a href="/campgrounds">All Campgrounds</a>
+            <a href="/campgrounds/<%=campground._id%>">Back to Campground</a>
+
+        </div>
+    </div>
+
+    
+    
